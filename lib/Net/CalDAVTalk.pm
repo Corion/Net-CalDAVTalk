@@ -1007,8 +1007,8 @@ sub GetEventLinks {
     my $Start = _wireDate($Args{after} || $BoT);
     my $End = _wireDate($Args{before} || $EoT);
     push @Extra, x('C:time-range', {
-      start => $Start->strftime('%Y%m%dT000000Z'),
-      end   => $End->strftime('%Y%m%dT000000Z'),
+      start => $Start->strftime('%Y%m%dT%H:%M:%SZ'),
+      end   => $End->strftime('%Y%m%dT%H:%M:%SZ'),
     });
   }
 
@@ -1091,8 +1091,8 @@ sub GetFreeBusy {
 
     push @Query,
             x('C:time-range', {
-              start => $Start->strftime('%Y%m%dT000000Z'),
-              end   => $End->strftime('%Y%m%dT000000Z'),
+              start => $Start->strftime('%Y%m%dT%H:%M:%SZ'),
+              end   => $End->strftime('%Y%m%dT%H:%M:%SZ'),
             });
   }
 
